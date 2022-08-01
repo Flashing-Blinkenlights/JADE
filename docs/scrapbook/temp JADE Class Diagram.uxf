@@ -1,0 +1,576 @@
+<diagram program="umletino" version="15.0.0"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>1380</x><y>2090</y><w>410</w><h>860</h></coordinates><panel_attributes>Presence
+--
++ dimension : Dimension
++ pos : Position
++ on_block : Block
++ in_blocks : [Block]
++ rotation : (foat, float) = (0, 0)
++ path : [Position]
++ size : Position
++ view_range : (int, int, int, int) = (1, 8, 15, 42)
++ pathfind(pos : Position) : [Position]
+
++ respawns : bool = False
++ spawnpoint : Position
+--
+
+--
+-SCRAP-
+
++ age : int = 0 (in days, negative means died at that age)
++ gender : bool
++ colour : Colour
++ history : [Event]
+
++ crest : {"colours": [Colour], "fields": [Pattern], "charges"}
++ heritage : Ethnicity
++ parents : [Relationship]
++ siblings : [Relationship]
++ children : [Relationship]
++ relationships : [Relationship]
++ beliefs : {str: float}
+
++ bed : Furniture
++ jobsite : Furniture
++ gatherspace : Location
++ max_inventory : int = 8
++ inventory : [(Item: int)]
+
++ avg_income : int = 0
++ avg_expense : int = 0
++ wealth : int = 0
++ profession : Profession = Profession("minecraft:none")
++ mastery : int = 1
++ experience : int = 0
+
++ tasks : {"total": int, Task: int}
++ prices : {Nation: {Region: {Location: {Person: {Commodity: int} } } } }
++ buying : [Offer]
++ selling : [Offer]
++ property : [Commodity]
++ gossip : [Gossip]
++ secrets : {Position: Secret?}
+
++ effects : {Effect: duration}}
++ safety : float
++ transit : float
++ mood : float
++ satisfaction : float
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1830</x><y>2340</y><w>190</w><h>100</h></coordinates><panel_attributes>Villager
+--
+
+--
++ summon(pos : Position) : int
++ lightning_strike() : int
++ kill(killedby : Mob) : int</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1830</x><y>2620</y><w>190</w><h>80</h></coordinates><panel_attributes>Illager
+--
++ max_health : int = 24
++ max_inventory : int = 1
+--
++ summon(pos : Position) : int</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1830</x><y>2710</y><w>190</w><h>80</h></coordinates><panel_attributes>Piglin
+--
++ max_health : int = 16
+--
++ summon(pos : Position) : int
++ portal_use(portal : Portal) : int</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1780</x><y>2090</y><w>70</w><h>200</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;30;10;30;160;50;180</additional_attributes></element><element><id>Relation</id><coordinates><x>1780</x><y>2090</y><w>70</w><h>480</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;30;10;30;440;50;460</additional_attributes></element><element><id>Relation</id><coordinates><x>1780</x><y>2090</y><w>70</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;50;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1780</x><y>2090</y><w>70</w><h>560</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;30;10;30;520;50;540</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1830</x><y>2090</y><w>190</w><h>80</h></coordinates><panel_attributes>Player
+--
++ max_inventory : int = 35
+--
++ summon(pos : Position) : int</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1830</x><y>2540</y><w>190</w><h>70</h></coordinates><panel_attributes>Witch
+--
++ max_health : int = 26
+--
++ summon(pos : Position) : int</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1780</x><y>2090</y><w>70</w><h>390</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;30;10;30;350;50;370</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1830</x><y>2450</y><w>190</w><h>80</h></coordinates><panel_attributes>Zombie Villager
+--
+
+--
++ summon(pos : Position) : int
++ cure() : int</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1780</x><y>2090</y><w>70</w><h>280</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;30;10;30;240;50;260</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1830</x><y>2260</y><w>190</w><h>70</h></coordinates><panel_attributes>Wandering Trader
+--
+
+--
++ summon(pos : Position) : int</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1780</x><y>2090</y><w>70</w><h>120</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;30;10;30;80;50;100</additional_attributes></element><element><id>UMLClass</id><coordinates><x>460</x><y>1810</y><w>210</w><h>290</h></coordinates><panel_attributes>&lt;&lt;enumeration&gt;&gt;
+Colour
+--
+white
+orange
+magenta
+light blue
+yellow
+lime
+pink
+gray
+light gray
+cyan
+purple
+blue
+brown
+green
+red
+black</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1190</x><y>1240</y><w>230</w><h>90</h></coordinates><panel_attributes>Profession
+--
++ appearance : str = "minecraft:none"
++ jobblock : str
+--
++ </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>260</x><y>2490</y><w>230</w><h>90</h></coordinates><panel_attributes>Furniture
+--
++ ...
+--
++ ...</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>570</x><y>2480</y><w>230</w><h>110</h></coordinates><panel_attributes>Room
+--
++ name : str
++ structure : Structure
++ furniture : [Furniture]
++ doorways : {Position: Room}
+--
++ ...</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>2040</x><y>2620</y><w>230</w><h>90</h></coordinates><panel_attributes>Property
+--
++ ...
+--
++ ...</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>210</x><y>2720</y><w>230</w><h>90</h></coordinates><panel_attributes>Nation
+--
+
+--
++ ...</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1360</x><y>1150</y><w>230</w><h>90</h></coordinates><panel_attributes>Offer
+--
++ ...
+--
++ ...</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>2070</x><y>2220</y><w>230</w><h>300</h></coordinates><panel_attributes>Commodity
+--
++ price : int
++ owner : int
++ renter : int = none
++ rent price : int
++ term : int = -1
++ leasing : bool = False
+--
++ ...</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>2340</x><y>2220</y><w>230</w><h>300</h></coordinates><panel_attributes>Item
+--
++ name : str
++ count : int = 1
++ holder : Person
++ stored_at : Position = none
++ max_durability : int = none
++ durability : int = none
++ enchantments : [Enchantment]
++ rarity : int = 1
++ maker : Person
++ origin : Location
+--
++ store(pos : Position) : int
++ retrieve(
++ to_nbt() : str
++ give(selector : str, amount : int) : str</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>2180</x><y>2760</y><w>230</w><h>90</h></coordinates><panel_attributes>Service
+--
++ provider : Person
++ requires : [Item]
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>0</x><y>1400</y><w>230</w><h>150</h></coordinates><panel_attributes>Position
+--
++ vector : np.ndarray
+--
+@classmethod
++ fromnparray(a : np.ndarray)
+@property
++ x
++ y
++ z</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1530</x><y>1190</y><w>230</w><h>90</h></coordinates><panel_attributes>Pattern
+--
++ ...
+--
++ ...</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1480</x><y>1270</y><w>230</w><h>90</h></coordinates><panel_attributes>Relationship
+--
++ person : Person
++ attitude : int
++ cooldown : int
+--
++ chat() : int
++ gift() : </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1470</x><y>1070</y><w>230</w><h>90</h></coordinates><panel_attributes>Ethnicity
+--
++ ...
+--
++ ...</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1130</x><y>1070</y><w>230</w><h>90</h></coordinates><panel_attributes>Effect
+--
++ ...
+--
++ ...</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>890</x><y>1180</y><w>230</w><h>90</h></coordinates><panel_attributes>&lt;diagram program="umletino" version="14.4.0-SNAPSHOT"&gt;&lt;zoom_level&gt;10&lt;/zoom_level&gt;&lt;element&gt;&lt;id&gt;UMLClass&lt;/id&gt;&lt;coordinates&gt;&lt;x&gt;890&lt;/x&gt;&lt;y&gt;1180&lt;/y&gt;&lt;w&gt;230&lt;/w&gt;&lt;h&gt;90&lt;/h&gt;&lt;/coordinates&gt;&lt;panel_attributes&gt;Experience
+--
++ ...
+--
++ ...&lt;/panel_attributes&gt;&lt;additional_attributes&gt;&lt;/additional_attributes&gt;&lt;/element&gt;&lt;/diagram&gt;Experience
+--
++ ...
+--
++ ...</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1370</x><y>1470</y><w>230</w><h>90</h></coordinates><panel_attributes>Event
+--
++ ...
+--
++ ...</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1210</x><y>1310</y><w>230</w><h>90</h></coordinates><panel_attributes>Food
+--
++ ...
+--
++ ...</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>680</x><y>1470</y><w>230</w><h>180</h></coordinates><panel_attributes>Portal
+--
++ rect : Rect
++ link_to : {Position : Portal}
++ teleport_to : {Position : Position}
++ departure : Dimension
++ destination : Dimension
++ active : bool
++ block : str
+--
++ light() : int
++ break() : int</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>930</x><y>1060</y><w>230</w><h>90</h></coordinates><panel_attributes>Gossip
+--
++ ...
+--
++ ...</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>2290</x><y>2220</y><w>70</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;50;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>2050</x><y>2860</y><w>230</w><h>90</h></coordinates><panel_attributes>Build
+--
++ involved : [Person]
+--
++ act(</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>2610</x><y>2320</y><w>230</w><h>130</h></coordinates><panel_attributes>Storage
+--
++ dimension : Dimension
++ pos : Position
++ lock : str = none
++ inventory : int = 27
++ content : [Item]
+--
++ move(pos : Position)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>2610</x><y>2220</y><w>230</w><h>90</h></coordinates><panel_attributes>Shulkerbox
+--
++ colour : Colour
++ placed : bool = False
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>2560</x><y>2220</y><w>70</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;50;10</additional_attributes></element><element><id>Relation</id><coordinates><x>2580</x><y>2220</y><w>50</w><h>130</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>30;110;10;110;10;10;30;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>2880</x><y>2320</y><w>230</w><h>90</h></coordinates><panel_attributes>Inventory Minecart
+--
++ 
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>3150</x><y>2320</y><w>230</w><h>90</h></coordinates><panel_attributes>Hopper Minecart
+--
++ inventory : int = 5
+--
++ check()</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>2830</x><y>2320</y><w>70</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;50;10</additional_attributes></element><element><id>Relation</id><coordinates><x>3100</x><y>2320</y><w>70</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;50;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1830</x><y>2180</y><w>190</w><h>70</h></coordinates><panel_attributes>Armor Stand
+--
+
+--
++ summon(pos : Position) : int</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1780</x><y>2090</y><w>70</w><h>650</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;30;10;30;610;50;630</additional_attributes></element><element><id>UMLClass</id><coordinates><x>970</x><y>2330</y><w>260</w><h>240</h></coordinates><panel_attributes>Action
+--
++ name : str
++ countdown : int
+
++ condition : str
++ start : str
+
++ action : str
++ nested : [Action] //(if state is name)
+
++ interrupt : str
++ finish : str
+--
++ do(actor : Actor, *args, **kwargs) : int 
+--
+/Possible implementation:/
+
+def do(person, *args, **kwargs):
+
+  time_spent = 0
+
+  if state != name:
+    exec(start)
+
+  if eval(interrupt):
+    exec(finish)
+    return time_spent
+
+  exec(action)
+
+  return time_spent</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>970</x><y>1470</y><w>260</w><h>180</h></coordinates><panel_attributes>World
+--
++ seed : int
++ dimensions : [Dimension]
++ portals : [Portal]
++ spawnpoint : Position
++ difficulty : int = 0
++ time ; int
+--
++ get_daytime() : int
++ get_days() : int
++ simulate(time : int) : int</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>900</x><y>1470</y><w>90</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>70;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>410</x><y>1470</y><w>230</w><h>70</h></coordinates><panel_attributes>Nether Portal
+--
++ block : str = "minecraft:nether_portal"
+--
++ recalculate()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>410</x><y>1550</y><w>230</w><h>70</h></coordinates><panel_attributes>End Portal
+--
++ block : str = "minecraft:end_portal"
+--
++ recalculate()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>410</x><y>1630</y><w>230</w><h>70</h></coordinates><panel_attributes>End Gateway
+--
++ block : str = "minecraft:end_gateway"
+--
++ recalculate()</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>630</x><y>1470</y><w>70</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>50;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>630</x><y>1470</y><w>70</w><h>110</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>50;10;30;10;30;70;10;90</additional_attributes></element><element><id>Relation</id><coordinates><x>630</x><y>1470</y><w>70</w><h>190</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>50;10;30;10;30;150;10;170</additional_attributes></element><element><id>UMLClass</id><coordinates><x>970</x><y>1660</y><w>260</w><h>180</h></coordinates><panel_attributes>Dimension
+--
++ name : str
++ world : World
++ world_slice : WorldSlice
++ blocks : np.ndarray(Block)
++ entities : np.ndarray([Entity])
++ sounds : np.ndarray([Sound])
++ actors : [Actor]
++ height : (int, int) = (0, 127)
++ sleepable : bool = False
++ weather : str = None
+--
++ simulate() : int
++ get_period(time : int = None) : None</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>900</x><y>1550</y><w>90</w><h>140</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;40;10;40;80;70;120</additional_attributes></element><element><id>Relation</id><coordinates><x>900</x><y>1540</y><w>90</w><h>150</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;40;10;40;90;70;130</additional_attributes></element><element><id>Relation</id><coordinates><x>930</x><y>1510</y><w>60</w><h>180</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>40;10;10;10;10;120;40;160</additional_attributes></element><element><id>UMLClass</id><coordinates><x>680</x><y>1660</y><w>230</w><h>120</h></coordinates><panel_attributes>Overworld
+--
++ name : str = "minecraft:overworld"
++ height : (int, int) = (-64, 319)
++ sleepable : bool = True
+--
++ simluate() : int
++ get_period(time : int = None) : str</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>680</x><y>1790</y><w>230</w><h>50</h></coordinates><panel_attributes>Nether
+--
++ name : str = "minecraft:the_end"
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>680</x><y>1850</y><w>230</w><h>50</h></coordinates><panel_attributes>End
+--
++ name : str = "minecraft:the_end"
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>970</x><y>1860</y><w>260</w><h>300</h></coordinates><panel_attributes>Actor
+--
++ name : str
++ type : str
+
++ systems : [System]
++ states : [str]
++ traits : {Trait: float}
++ actions : [Action]
++ history : [Event]
+--
++ modify_trait(trait : Trait, value : float) : float
++ act() : int
++ </panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>900</x><y>1660</y><w>90</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>70;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>900</x><y>1660</y><w>90</w><h>160</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>70;10;40;10;40;110;10;140</additional_attributes></element><element><id>Relation</id><coordinates><x>900</x><y>1660</y><w>90</w><h>220</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>70;10;40;10;40;170;10;200</additional_attributes></element><element><id>Relation</id><coordinates><x>1220</x><y>1770</y><w>60</w><h>120</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;40;10;40;50;10;100</additional_attributes></element><element><id>Relation</id><coordinates><x>930</x><y>2020</y><w>60</w><h>340</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>40;10;10;10;10;290;40;320</additional_attributes></element><element><id>UMLClass</id><coordinates><x>570</x><y>2650</y><w>230</w><h>170</h></coordinates><panel_attributes>Location
+--
++ name : str
++ parent : Location = None
++ children : [Locations] = []
++ laws : [Law]
++ activities : [Action]
++ events : [Law/Action?]
++ area : 
+--
++ </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>510</x><y>2910</y><w>230</w><h>90</h></coordinates><panel_attributes>Building
+--
++ rooms : [Room]
+--
++ ...</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>3050</x><y>1940</y><w>510</w><h>220</h></coordinates><panel_attributes>&lt;&lt;dataclass&gt;&gt;
+Structure
+--
++ start : Position = none
++ matrix : np.ndarray(str)
++ palettes : [{str: [Matter]}] //Palette containing interchangable blocks
+--
++ place(pos : Position, integrity : float = 1, entities : bool = True, palette : {str: Matter} = None)
++ rotate90(axis : Axis, amount : int)
++ mirror(axis : Axis)
+
+@property
++ end : Position
++ size : Position
++ mask : np.ndarray</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>2000</x><y>1910</y><w>300</w><h>120</h></coordinates><panel_attributes>/Matter/
+--
++ id = str
+--
+/+ place(pos : Position, dimension : Dimension = None)/
+/+ remove(pos : Position, dimension : Dimension = None)/
+/+ rotate90(axis : Axis, amount : int)/
+@property
+/+ data : str/</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>2610</x><y>2570</y><w>110</w><h>90</h></coordinates><panel_attributes>&lt;&lt;enumeration&gt;&gt;
+Axis
+--
+x
+y
+z</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>2340</x><y>2110</y><w>330</w><h>100</h></coordinates><panel_attributes>Block
+--
+state = [str:str]
+--
++ place(pos : Position, dimension : Dimension = None)
+- remove(pos : Position, dimension : Dimension = None)
++ rotate90(axis : Axis, amount : int)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>2340</x><y>1910</y><w>330</w><h>190</h></coordinates><panel_attributes>Entity
+--
++ name : str = ""
++ pos : Position
++ rotation : (foat, float) = (0, 0)
++ passengers : [Entity]
++ UUID : int = None
+--
++ place(pos : Position, dimension : Dimension = None)
+- remove(pos : Position, dimension : Dimension = None)
++ rotate90(axis : Axis, amount : int)?
+@property
++ data</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>2290</x><y>1910</y><w>70</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;50;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>2710</x><y>1910</y><w>230</w><h>230</h></coordinates><panel_attributes>Mob
+--
++ max_health : int
++ health : int
++ damage : (int, int, int, Effect)
++ effects : [Effect] = []
++ armour : ["feet":Item, "legs":Item, "chest":Item, "head":Item] = None
++ holding : [Item, Item] = None
++ lefthanded : bool = None
++ attributes : [Attribute]?
++ loot : str = None
++ noAI : bool = False
++ persistent : bool
+--
+@property
++ data</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>3590</x><y>1870</y><w>230</w><h>190</h></coordinates><panel_attributes>Attribute
+--
++ name : str
++ base ; float
++ modifiers : [Modifier]
+--
+@property
++ data</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>2290</x><y>1910</y><w>70</w><h>230</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;30;10;30;190;50;210</additional_attributes></element><element><id>Relation</id><coordinates><x>2660</x><y>1910</y><w>70</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;50;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1860</x><y>1310</y><w>230</w><h>120</h></coordinates><panel_attributes>System
+--
++ requires : [Object]
++ optional : [str]?
++ states : [str]
++ traits : {Trait: float}
++ actions : [Action]
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1690</x><y>1680</y><w>230</w><h>170</h></coordinates><panel_attributes>&lt;&lt;dataclass&gt;&gt;
+Trait
+--
++ type : str
++ min : float = 0
++ max : float = 1
++ initial : float = None
++ dist : func = random.random //must return 0..1
++ args, kwargs : [ ], {str=*}
+--
++ initial()
+--
+/Possible implementation:/
+
+initial(self):
+  return func(*args, **kwargs)*(max-min)-min if self.initial is None else self.initial</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>2180</x><y>190</y><w>550</w><h>180</h></coordinates><panel_attributes>Health
+--
++ states : ["immunity", "fire protection", "poisoned", "regenerating", "resisting", "withering"]
++ actions : [Action]
+
++ max_health : int
++ health : int
++ absorption : int
+--
++ heal(int) : int
++ damage(int, type : str = None) : int
++ die(reason : Hazard, killer : Actor = None, tool : Item = None) : int</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>2180</x><y>510</y><w>550</w><h>240</h></coordinates><panel_attributes>Hunger
+--
++ requires : [System] = [Health]
++ states : [str] = ["eating", "hungering", "saturating", "fed", "hungry", "starving", "exhausted"]
++ actions : [Action]
+
++ food_thresholds : (int, int) = (6, 18)
++ max_food : int = 20
++ food : int
++ saturation : int = 5
++ exhaustion : float = 0
+--
++ eat(food : Food) : int
++ exhaust(n : float) : float
++ damage(int) : int
++ reset() : int</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1500</x><y>1400</y><w>230</w><h>90</h></coordinates><panel_attributes>Hazard
+--
++ ...
+--
++ ...</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>2180</x><y>0</y><w>550</w><h>180</h></coordinates><panel_attributes>Movement
+--
++ states : ["crawling", "sneaking", "walking", "sprinting",
+"jumping", "climbing", "knockedback", "falling", "gliding", "flying",
+"swimming", "sitting", "lying", "swimming", "riding", 
+"jump boost", "levitation", "slow falling", "slowness", "speed", "dolphin's grace"]
++ traits : {Trait: float} = [{speed}, {swimming}, {riding}, {rowing}, {throwing}, {movement}]
++ actions : [Action]
+
++ base : float = 4
++ progress : float //distance to next block
+--
++ move(Position) : Position
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>2180</x><y>380</y><w>550</w><h>120</h></coordinates><panel_attributes>Combat
+--
++ states : ["strength", "weakness", "falling", "blindness", "slow falling", "striking" ]
++ traits : {Trait: float} = [{Perception}, {Observation}, {Deception}, {Planning}, {Creativity}, {Speed}, {Swimming}, {Riding}, {Rowing}, {Brave}, {Alert}, {Focused}, {Calm}]
++ actions : [Action]
+
++ cooldown : int
+--
++ attack(victim : Actor)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>2180</x><y>760</y><w>550</w><h>120</h></coordinates><panel_attributes>Interacting
+--
++ states : [str] = ["haste", "fatigue", "mining"]
++ traits : {Trait: float} = [{Construction}, {Mining}]
++ actions : [Action]
+
++ range : int = 1
+--
++ interact(block : Block) : int
++ mine(block : Block) : Item
++ place(item : Item, pos : Position) : int</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>2180</x><y>890</y><w>550</w><h>120</h></coordinates><panel_attributes>Breathing
+--
++ states : [str] = ["water breathing", "conduit power"]
++ actions : [Action]
+
++ max_air : int = 20
++ air : int
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>2180</x><y>1020</y><w>550</w><h>120</h></coordinates><panel_attributes>Village
+--
++ states : [str] = ["bad omen", "hero of the village"]
++ actions : [Action]
+
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>2180</x><y>1150</y><w>550</w><h>120</h></coordinates><panel_attributes>Vision
+--
++ states : [str] = ["blindness", "darkness", "nausea", "night vision", "burning"]
++ traits : {Trait: float} = [{Perception}, {Observation}, {Vision}, {Alert}]
++ actions : [Action]
+
++ fov : int
++ aspect_ratio : float = 3/2
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>2180</x><y>1280</y><w>550</w><h>120</h></coordinates><panel_attributes>Visibility
+--
++ states : [str] = ["invisibility", "glowing"]
++ traits : {Trait: float} = [{Calm}]
++ actions : [Action]
+
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>2180</x><y>1410</y><w>550</w><h>120</h></coordinates><panel_attributes>Hearing
+--
++ traits : {Trait: float} = [{Perception}, {Observation}, {Hearing}]
++ actions : [Action]
+
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>2180</x><y>1540</y><w>550</w><h>120</h></coordinates><panel_attributes>Noise
+--
++ states : [str] = ["invisibility", "glowing"]
++ actions : [Action]
+
+--
++ make_noise()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1320</x><y>1690</y><w>230</w><h>110</h></coordinates><panel_attributes>Sound
+--
++ sound_id : str
++ event_id : str = None
++ volume : float
++ distance : float
++ information : []
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>2180</x><y>1670</y><w>550</w><h>120</h></coordinates><panel_attributes>Communication
+--
++ states : [str] = ["invisibility", "glowing"]
++ traits : {Trait: float} = [{Calm}]
++ actions : [Action]
+
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1654</x><y>1540</y><w>230</w><h>90</h></coordinates><panel_attributes>/Interface/
+--
++ ...
+--
+/+ placeBlock(Position, Block)/
+/+ getBlock(Block)/</panel_attributes><additional_attributes></additional_attributes></element></diagram>

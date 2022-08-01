@@ -6,8 +6,11 @@ TODO Table of contents
 # 1. Introduction
 TODO write
 ## 1.1. Purpose
-The purpose of JADE is to provide a unified and open-source approach to algorithmic design (AD). Currently, many open-source projects within AD research are fairly isolated in their design, which impedes code re-use and expansion upon promising codebases.
-The modular nature of JADE should encourage developers to use a "universal" format, with the intention of reducing development time, lowering the barrier for entry and increasing the accessibility of future codebases.
+The purpose of JADE is to provide a unified and open-source approach to algorithmic design (AD).  
+
+Currently, many open-source projects within AD research are fairly isolated in their design, which impedes code reusability and the expansion upon promising codebases.  
+The modular nature of JADE should encourage developers to use a "universal" format, with the intention of reducing development time, lowering the barrier for entry and increasing the accessibility of future codebases.  
+Licencing should encourage open-source practices and positive feedback loops, where suggestions and contributions can be easily adopted to continuously improve the product.
 ## 1.2. Intended Audience
 There are three primary audiences which should be catered to:
 1. First-time users
@@ -94,24 +97,32 @@ Additionally, it is presumed that JADE implementations will be run on contempora
 - Dual-core 500 MHz CPU
 - 512 MB RAM
 - Sufficient memory to store the JADE implementation and appropriate language compilers/interpreters
-A graphical user environment should not be required, but extensions may have their own requirements (such as requiring additional software).
-The core JADE implementation should be able to run solely on the standard libraries included in the appropriate language. 
+
+A graphical user environment should not be required, but extensions may have their own requirements (such as requiring additional software or certain operating environments).
+The core JADE implementation should be able to run solely on the standard libraries included in the appropriate implementation language. 
 
 # 3. System Features and Requirements
 ## 3.1. Functional Requirements
+JADE implementations must fulfil the following requirements to be considered for release:
+1. Tested with > 95% coverage
+2. Testing resulted in 0 crashes and 0 errors
+3. A debug mode is provided (see `"docs/extensions/testing"`)
 
 ## 3.2. Extensions
-### 3.2.1. Command-line Interface `jade.cmd`
+JADE implementations may support various extensions which provide aspects of the JADE implementation.
 
-### 3.2.2. File I/O `jade.files`
+Extensions are compliant with JADE specifications and are therefore more strictly regulated, though authors should have a lot of freedom on how to implement the specified behaviours.
 
-### 3.2.3. 
+The following are considered part of the core implementation and must be provided:
+- `jade.logging`: Provides functionality for logging to files or other outputs
+- `jade.files`: Provides functionality for reading and writing files
+- `jade.console`: Provides functionality for writing to and from consoles and command lines
+- `jade.testing`: Provides functionality for unit tests and manual testing
 
+See `docs/extensions` for further information.
 ## 3.3. Plug-ins
-
-
-## 3.4. System Features
-
+Plug-ins come in all shapes and sizes and are not bound to any specifications, but make use of or enhance JADE functionality.
+Sometimes plug-ins may inspire future JADE specifications.
 
 ## 3.5. Non-functional Requirements
 ### 3.5.1. Versioning
@@ -120,8 +131,12 @@ Versions with the same `major` are backwards compatible and optionally forwards 
 In the case of changes which are compatible with the previous version, the `minor` is incremented.
 It is strongly recommended that `patch` is reset to 0 when updating to a different JADE specification version.
 Developers are free to partially implement later versions without guaranteeing compatibility, under the condition that the `major` and `minor` are of versions where full compatibility is guaranteed.
-#### 3.5.1.1. Versioning Examples
-TODO
+#### 3.5.1.1. Versioning Example
+In the following example "implementation" refers to a JADE implementation and "developer" refers to a developer of the implementation. The example is fictional and serves demonstrative purposes only.
+1. The current version of an implementation is `0.1.34`. It is fully compatible with JADE `0.1`.
+2. The maintainer or developer of the implementation implements support for a future feature, the implementation version becomes `0.1.35`.
+3. A new JADE specification with minor improvements is released (JADE `0.2`). The developer updates the implementation to be compatible. The implementation version becomes `0.2.0`.
+4. The developer finds and fixes a bug. The implementation version becomes `0.2.1`.
 ### 3.5.2. Licencing
 JADE and all JADE implementations and extensions are licenced under the GPL 3 and all source-code files contained therein should contain the following comment at the start of the file:
 ```py
@@ -154,5 +169,9 @@ This value can then be checked to prevent usage of license-incompatible products
 > As a result, if the derivative product is distributed, even under a different license, you must make source code of your derivative product available to the public.  
 > 
 > **TL;DR:**  
-> If you use something that uses the GPL license in your product and you distribute it, your product legally becomes open-source, regardless of how or what part of it you distribute.
+> If you use something that uses the GPL license in your product and you distribute it, your product legally becomes open-source when distributing, regardless of how or what part of it you distribute.
 
+### 3.5.3. Donations and Monetisation
+JADE, JADE implementations and extensions will remain public and open-source free of charge, but derivative products may be commercialised in accordance with the license agreements used by JADE.  
+In the case that a derivative product is commercialised, the author of said product has no obligations towards the developers of JADE to pay a contribution, but donations are welcome and will be distributed on a case-by-case basis, based on the donator's preferences.  
+Donations will be publicly listed.
