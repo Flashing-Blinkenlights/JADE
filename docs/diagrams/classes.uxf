@@ -1,1 +1,194 @@
-<diagram program="umletino" version="15.0.0"><zoom_level>10</zoom_level></diagram>
+<diagram program="umletino" version="15.0.0"><zoom_level>10</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>864</x><y>480</y><w>240</w><h>100</h></coordinates><panel_attributes>Event_Manager
+--
++ subscriptions : {event: ([func], called)}
+--
+// debug when creating new event
++ add_subscription(event, funct)
+// debug, remove event if empty
++ remove_subscription(event, funct)
+// run every subscribed function
++ call(event, *args, **kwargs)
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1944</x><y>70</y><w>140</w><h>110</h></coordinates><panel_attributes>&lt;&lt;dataclass&gt;&gt;
+Atom_Type
+/E.g. block template/
+--
++ name : str
++ material : Material
++ geometry : Model
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>2144</x><y>70</y><w>230</w><h>110</h></coordinates><panel_attributes>&lt;&lt;dataclass&gt;&gt;
+Material
+/E.g. wood/
+--
++ name : str
++ properties : {tag: value} = dict()
++ parents : [Material] = []
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>2074</x><y>80</y><w>90</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>70;10;40;10;40;70;10;70</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1584</x><y>70</y><w>300</w><h>160</h></coordinates><panel_attributes>Atom
+/E.g. real block/
+--
++ type : Atom_Type = None
+--
++ replace(Atom_Type, ...)
++ translate(ahead, left, above, scope=self.scope)
++ translate_to(x, y, z, scope=self.scope)
++ rotate(roll, pitch, yaw, scope=self.scope)
++ rotate_to(alpha, beta, gamma, scope=self.scope)
++ destroy()</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1874</x><y>80</y><w>90</w><h>60</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>70;10;40;10;40;40;10;40</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1164</x><y>70</y><w>360</w><h>510</h></coordinates><panel_attributes>Scope
+/E.g. environment, room, .../
+--
++ east = Vector(1, 0, 0)
++ west = Vector(-1, 0, 0) 
++ north = Vector(0, 1, 0)
++ south = Vector(0, -1, 0)
++ up = Vector(0, 0, 1)
++ down = Vector(0, 0, -1)
+-.
++ name : str = None
++ parent : Scope
++ children : [Scope] = []
++ offset : Vector
++ shape : Shape
++ maps : dict(tag: Shape)
++ properties : {tag: value}
++ states : {tag: value}
++ events : Event_Manager
+-..
++ attributes : {tag: value}
++ global_offset : Vector
++ parents : [Scope]
++ ahead : Vector
++ behind : Vector
++ left : Vector
++ right : Vector
++ above : Vector
++ below : Vector
+--
++ call(event, *args, **kwargs)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>684</x><y>70</y><w>420</w><h>150</h></coordinates><panel_attributes>Shape
+--
++ figure : ndarray (boolean)
+-..
++ size
++ center
+--
++ rotate(x, y, z, force : bool)
++ flip(axis)
++ convex_hull()
++ convex_solid()</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1514</x><y>80</y><w>90</w><h>220</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>70;200;40;200;40;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>434</x><y>160</y><w>190</w><h>230</h></coordinates><panel_attributes>Vector
+/3D vector that can also act as 2D/
+--
++ vector : ndarray = (0, 0, 0)
++ scope : Scope = None
+-..
++ x : float
++ y : float
++ z : float
++ magnitude : float
+--
++ rotated(Rotation) : Vector
++ normalized() : Vector
++ as_rotation() : Rotation
++ to_global() : Vector
++ to_scope(Scope) : Vector</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>2144</x><y>200</y><w>230</w><h>140</h></coordinates><panel_attributes>&lt;&lt;dataclass&gt;&gt;
+Model
+/E.g. stairs/
+--
++ name : str
++ properties : dict(tag: value) = dict()
++ permitted_rotation : {x, y, z} = {0, 0, 0}
++ shape : Shape = Shape(1, 1, 1)
+/(+ collision : ...?)/
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>2074</x><y>160</y><w>90</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>70;70;40;70;40;10;10;10</additional_attributes></element><element><id>UMLNote</id><coordinates><x>2394</x><y>70</y><w>210</w><h>110</h></coordinates><panel_attributes>Properties may include:
+- opacity : float = 1.0
+- colour : hex = 0x000000
+- flammability : int
+- gravity : float</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>2364</x><y>60</y><w>50</w><h>110</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>10;90;20;80;20;20;30;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>684</x><y>240</y><w>420</w><h>140</h></coordinates><panel_attributes>Blueprint
+--
++ blueprint : ndarray (representing 3D space, with lists of Placeholders)
++ properties : {tag: value} = dict()
+-..
++ placeholders : {name: Placeholder_Entity}
+--
++ build(Palette, Vector, Scope=None) : Scope
++ rotate(x, y, z, force : bool)
++ flip(axis)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLNote</id><coordinates><x>2394</x><y>200</y><w>210</w><h>110</h></coordinates><panel_attributes>Properties may include:
+- navigability : int = -1 (impassable)</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>2364</x><y>190</y><w>50</w><h>110</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>10;90;20;80;20;20;30;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1584</x><y>250</y><w>300</w><h>190</h></coordinates><panel_attributes>Entity
+--
++ scope : Scope
++ id : str = None
++ position : Vector (relative)
++ systems : [System] = []
+--
++ set_scope(scope)
++ translate(ahead, left, above, scope=self.scope)
++ translate_to(x, y, z, scope=self.scope)
++ rotate(roll, pitch, yaw, scope=self.scope)
++ rotate_to(alpha, beta, gamma, scope=self.scope)
++ destroy()</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1724</x><y>220</y><w>30</w><h>50</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;30;10;10</additional_attributes></element><element><id>UMLNote</id><coordinates><x>2064</x><y>710</y><w>390</w><h>60</h></coordinates><panel_attributes>fg=red
+This class diagram was created with Python datatypes in mind.
+Any attempt to modify this diagram so it is language-agnostic is 
+welcome to get in touch!
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>174</x><y>160</y><w>250</w><h>230</h></coordinates><panel_attributes>Rotation
+/3D rotation/
+--
+rotation : SciPyRotation.from_euler(0, 0, 0)
+-..
++ alpha : float
++ beta : float
++ gamma : float
+--
++ as_vector(Scope = None) : Vector</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1164</x><y>600</y><w>360</w><h>140</h></coordinates><panel_attributes>World
+--
++ parent : Scope = None
++ entities : {id: Entity}
++ space : ndarray (representing 3D space, with lists of Entites)
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>2314</x><y>780</y><w>140</w><h>160</h></coordinates><panel_attributes>fg=red
+&lt;&lt;stereotype&gt;&gt;
+Class_With_Static_Vals
+/description/
+--
++ static_attributes
+-.
++ attributes
+-..
++ calculated_attributes
+--
++ static_methods()
+-.
++ methods()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>2164</x><y>780</y><w>140</w><h>160</h></coordinates><panel_attributes>fg=red
+&lt;&lt;stereotype&gt;&gt;
+RegularClass
+/description/
+--
++ attributes
+-..
++ calculated_attributes
+--
++ methods()</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1334</x><y>570</y><w>30</w><h>50</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;30</additional_attributes></element><element><id>UMLClass</id><coordinates><x>2064</x><y>780</y><w>90</w><h>160</h></coordinates><panel_attributes>fg=red
+&lt;&lt;stereotype&gt;&gt;
+SimpleClass
+/description/
+--
++ attributes
+--
++ methods()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>404</x><y>70</y><w>220</w><h>80</h></coordinates><panel_attributes>Palette
+/associates Entities with Placeholders/
+--
+properites : {tag: value} = dict()
+entities : {name: Entity}</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1904</x><y>250</y><w>170</w><h>130</h></coordinates><panel_attributes>Placeholder_Entity
+--
++ name : str = None
++ states : {tag: val} = dict()
+- own_properties : {tag: val}
++ orientation : Rotation
+-..
++ properties
++ attributes
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1874</x><y>250</y><w>50</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>30;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>884</x><y>210</y><w>30</w><h>50</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;30</additional_attributes></element><element><id>Relation</id><coordinates><x>1094</x><y>70</y><w>90</w><h>220</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>70;200;40;200;40;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1094</x><y>310</y><w>90</w><h>200</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>70;10;10;180</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1584</x><y>500</y><w>300</w><h>190</h></coordinates><panel_attributes>fg=orange
+System
+--
++ states : {tag: value}
++ properties : {tag: value}
++ subscriptions : {event: [func]}
+-..
++ attributes : {tag: value}
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1544</x><y>320</y><w>60</w><h>210</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>40;10;10;10;10;190;40;190</additional_attributes></element></diagram>

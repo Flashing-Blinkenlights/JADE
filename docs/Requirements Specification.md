@@ -92,14 +92,18 @@ Optionally, an advanced tutorial may be provided which demonstrates a functional
 Framework developers will need to gain an understanding for their relevant JADE implementation fairly quickly. For this reason, JADE implementations and extensions should provide docstrings for every public function, method or data structure, and typing should always be clearly defined.
 
 ## 2.2. Assumptions and Dependencies
-The primary assumption is that all JADE implementations will take place in an object-oriented programming language.
+The primary assumption is that all JADE implementations will take place in an object-oriented programming language, since the data architecture revolves around this concept.
+
+
 Additionally, it is presumed that JADE implementations will be run on contemporary operating systems which make use of a file system and fulfil the following minimum system requirements:
 - Dual-core 500 MHz CPU
 - 512 MB RAM
-- Sufficient memory to store the JADE implementation and appropriate language compilers/interpreters
+- Sufficient memory to store the JADE implementation and appropriate language prerequisites
 
 A graphical user environment should not be required, but extensions may have their own requirements (such as requiring additional software or certain operating environments).
-The core JADE implementation should be able to run solely on the standard libraries included in the appropriate implementation language. 
+
+The core JADE implementation should, in principal, be able to run solely on the standard libraries included in the appropriate implementation language. 
+In cases where the addition of a widely-used (>>10'000 expected users) non-standard library would speed up development time as well as improve maintainability, performance and/or improve accessibility for users and developers, exceptions may be made.
 
 # 3. System Features and Requirements
 ## 3.1. Functional Requirements

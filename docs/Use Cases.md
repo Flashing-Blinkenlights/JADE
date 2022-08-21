@@ -3,15 +3,7 @@ This documents lists various use-cases and aspects pertaining to them.
 
 ```plantuml
 @startuml
-
-package JADE {
-    class tutorial
-    class logging
-}
-
-group actions
-    ()
-end
+skinparam actorStyle awesome
 
 :New User: as :Newb:
 :Newb: ..> :User: : becomes
