@@ -112,6 +112,12 @@ JADE implementations must fulfil the following requirements to be considered for
 2. Testing resulted in 0 crashes and 0 errors
 3. A debug mode is provided (see `"docs/extensions/testing"`)
 
+Additionally, the following philosophies should be adhered to where possible and sensible:
+1. [SOLID](https://en.wikipedia.org/wiki/SOLID)
+2. Single source of truth: Data should not be internally duplicated
+3. On-demand: Data should only be generated when requested
+
+Fulfilling these requirements results in good code quality, which increases code stability and performance as well as reducing future development time and effort, at the cost of an increased initial workload. 
 ## 3.2. Extensions
 JADE implementations may support various extensions which provide aspects of the JADE implementation.
 
