@@ -67,7 +67,7 @@ A player is a figure on the board and
 - (Has Handed-off) : bool
 - (Has Fouled) : bool
 - Knockdown : int (0 is up, 1 is stupor, 2 is prone, 3 is stunned, 4 is stunned this turn)
-- Condition : int (0 on pitch, 1 in reserves, 2 knocked out, 3 injured, 4 dead)
+- Condition : int (0 on pitch, 1 in reserves, 2 mild knock-out, 3 serious knock-out, 4 injured, 5 dead)
 
 
 ### Actions
@@ -376,3 +376,81 @@ If playing with extra rules, the following skills may be included:
 ## Free Fan Factor
 
 ## Additional Gold
+
+# Special Balls
+
+
+# Sevens
+
+# Street Bowl
+
+# Dungeon Bowl
+
+- Only one drive
+- Quick and short passes only
+
+## Generated Map
+
+At least:
+- 4 Corridors (2 wide)
+- 3 Small Rooms
+- 1 Large Room
+- 2 End Zones (as far apart as possible)
+- 6 Chests
+- Exactly 6 Teleporters
+
+## Chests
+One contains ball, all others cause knockdown to all adjacent players.
+
+## Teleporters
+Roll dice to determine which teleporter has been teleported to.
+If teleported twice per turn, injury roll
+If value rolles is equal to the number of the teleporter the player is teleporting from, they are removed from the game.
+
+## Doorways and Walls
+
+### Push into Wall
+### Ricochets
+
+# Death Bowl
+
+# Beach Bowl
+
+# Custom Game Variations
+
+## Alternate Game Parameters
+- Number of turns per half
+- Number of halfs
+## More Teams
+### Doubles/Triples etc.
+
+### 
+
+## Alternate Formation Rules
+Allowing different numbers of minimal and maximal Players, as well as only allowing or disallowing certain traits, per region on the Pitch allows for the start of the game to behave radically different.
+
+### E.g. *Blood Crucible*
+Players may be placed on the opponent's side of the Pitch while following other Formation rules
+
+## Multiple Balls
+
+## Non-Standard Pitch
+
+### Alternate Sizes
+
+### Alternate Layouts
+
+#### E.g. Dungeon Bowl
+
+### Alternate Tiling
+Using a tiling system with fundamentally different shapes or 
+
+#### E.g. Hexagonal
+Well-suited for two, three or six teams
+
+## Non-Standard Referre
+
+## Limited Visibility
+
+## Changing rules
+
